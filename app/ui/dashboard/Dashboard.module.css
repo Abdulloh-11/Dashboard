@@ -24,3 +24,16 @@
     flex-direction: column;
     gap: 20px;
 }
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.side {
+    flex: 1;
+}
+
+
+
+
