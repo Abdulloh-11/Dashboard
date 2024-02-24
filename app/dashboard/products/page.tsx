@@ -7,7 +7,9 @@ import Face_User from "../../../public/user.jpg"
 import img from "@/public/user.jpg"
 import { fetchProducts } from '@/app/lib/data'
 import { IProductPromise } from '@/app/types/users'
+
 import Pagination from '@/app/ui/dashboard/panigation/panigation'
+
 
   export default async function Products({ searchParams }: { searchParams: { query: string, page: string } }) {
   const q = searchParams?.query || "";

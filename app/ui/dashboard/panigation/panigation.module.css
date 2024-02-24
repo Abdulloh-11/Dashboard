@@ -1,2 +1,13 @@
-.container{}
-.button{}
+.container{
+    display: flex;
+    justify-content: space-between;
+
+}
+.button{
+    background-color: teal;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+
+}
