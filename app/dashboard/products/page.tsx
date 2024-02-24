@@ -8,7 +8,8 @@ import img from "@/public/user.jpg"
 import { fetchProducts } from '@/app/lib/data'
 import { IProductPromise } from '@/app/types/users'
 import Pagination from '@/app/ui/dashboard/panigation/panigation'
-export default function Products({ searchParams }: { searchParams: { query: string, page: string } }) {
+
+  export default async function Products({ searchParams }: { searchParams: { query: string, page: string } }) {
   const q = searchParams?.query || "";
   const page = Number(searchParams?.page) || 1
   const results: IProductPromise | undefined  = await fetchProducts(q, page)
