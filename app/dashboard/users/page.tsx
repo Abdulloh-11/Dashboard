@@ -1,17 +1,19 @@
+
 import React from 'react'
 import styles from "@/app/ui/dashboard/users/users.module.css"
 import Link from 'next/link'
 import Image from 'next/image'
 import img from "@/public/user.jpg"
 import Search from '@/app/ui/dashboard/search/Search'
-import Pagination from '@/app/ui/dashboard/pagination/Pagination'
+import Pagination from '@/app/ui/dashboard/panigation/panigation'
 import { fetchUsers} from "@/app/lib/data";
+import { IUserPromise } from '@/app/types/users'
 
 
-export default async function Users({searchParams}:{searchParams:{query:string}}) {
-  const q = searchParams?.query || "";
-  const users = await fetchUsers(q)
-  console.log(users, "user");
+export default async function Users({searchParams} : {searchParams: {query:string, page: string }}) {
+    const q = searchParams?.query || "";
+    const page = Number(searchParams?.page) || 1
+    const results : IUserPromise | undefined = await fetchUsers(q, page)
   
   return (
     <div className={styles.container}>
@@ -32,7 +34,7 @@ export default async function Users({searchParams}:{searchParams:{query:string}}
         </thead>
         <tbody>
         {
-          users?.map((user) => (
+            results?.users?.map((user) => (
               <tr key={user._id}>
                 <td>
                   <div className={styles.user}>
@@ -57,7 +59,7 @@ export default async function Users({searchParams}:{searchParams:{query:string}}
         }
         </tbody>
       </table>
-      <Pagination/>
+      <Pagination count={results?.count}/>
     </div>
   )
 }

@@ -5,6 +5,6 @@
 
 export default {
     images: {
-        domains: ["cdn-icons-png.flaticon.com"],
+        domains: ["images.pexels.com", 'cdn-icons-png.flaticon.com'],
     },
 };

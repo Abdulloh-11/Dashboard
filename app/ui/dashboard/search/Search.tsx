@@ -1,3 +1,4 @@
+"use client"
 import React, {ChangeEvent} from 'react'
 import styles from "./search.module.css"
 import { MdSearch } from 'react-icons/md'
