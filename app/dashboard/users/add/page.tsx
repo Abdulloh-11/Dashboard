@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from "@/app/ui/dashboard/users/addUser/addUser.module.css"
+import {addUser} from "@/app/lib/usersAction.";
+
 export default function AddUserPage() {
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form action={addUser} className={styles.form}>
           <input type="text" placeholder='username' name='username' required/>
           <input type="email" placeholder='Email' name='email' required/>
           <input type="passsword" placeholder='password' name='password' required/>

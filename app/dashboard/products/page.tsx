@@ -7,6 +7,7 @@ import Face_User from "../../../public/user.jpg"
 import img from "@/public/user.jpg"
 import { fetchProducts } from '@/app/lib/data'
 import { IProductPromise } from '@/app/types/users'
+import {deleteProduct} from "@/app/lib/producsAction";
 
 import Pagination from '@/app/ui/dashboard/panigation/panigation'
 
@@ -51,10 +52,13 @@ import Pagination from '@/app/ui/dashboard/panigation/panigation'
                 <td>{product?.stock}</td>
                 <td>
                   <div className={styles.buttons}>
-                    <Link href="/dashboard/products/1">
+                    <Link href={`/dashboard/products/${product._id}`}>
                       <button className={`${styles.button} ${styles.view}`}>View</button>
                     </Link>
-                    <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                    <form action={deleteProduct}>
+                      <input type="text" hidden name='id' value={product._id} />
+                      <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                    </form>
                   </div>
                 </td>
               </tr>

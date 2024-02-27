@@ -27,3 +27,24 @@ export const fetchProducts = async (q: string, page: number): Promise< IProductP
     }
 }
 
+
+export const fetchUser = async (id: string) => {
+    try {
+        connectToDB();
+        const user = await User.findById(id)
+        return user
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const fetchProduct = async (id: string) => {
+    try {
+        connectToDB();
+        const product = await Product.findById(id)
+        return product
+    } catch (err) {
+        console.log(err);
+    }
+}
+

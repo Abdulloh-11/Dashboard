@@ -8,6 +8,7 @@ import Search from '@/app/ui/dashboard/search/Search'
 import Pagination from '@/app/ui/dashboard/panigation/panigation'
 import { fetchUsers} from "@/app/lib/data";
 import { IUserPromise } from '@/app/types/users'
+import {deleteUser} from "@/app/lib/usersAction.";
 
 
 export default async function Users({searchParams} : {searchParams: {query:string, page: string }}) {
@@ -51,7 +52,10 @@ export default async function Users({searchParams} : {searchParams: {query:strin
                     <Link href={`/dashboard/users/${user._id}`}>
                       <button className={`${styles.button} ${styles.view}`}>View</button>
                     </Link>
-                    <button className={`${styles.button} ${styles.delete}`}>delete</button>
+                      <form action={deleteUser}>
+                          <input type="text" hidden name='id' value={user._id} />
+                          <button className={`${styles.button} ${styles.delete}`}>delete</button>
+                      </form>
                   </div>
                 </td>
               </tr>
